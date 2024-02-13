@@ -1,0 +1,93 @@
+@font-face {
+  font-family: "fontBG";
+  src: url(../Font/Fontin-Regular.ttf) format("truetype");
+}
+
+body {
+  height: 95vh;
+  display: flex;align-items: center;
+  flex-direction: column;
+  background-size: 100%;
+  font-family: fontBG;
+}
+
+h1 {
+  color: wheat;
+  display: flex;
+  justify-content: center;
+}
+
+.emplacement {
+  background-color: wheat;
+  border-radius: 100%;
+  height: 40px;
+  width: 40px;
+  justify-content: center;
+  align-items: center;
+}
+
+#board {
+  padding-left: 5px;
+
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  width: 50vh;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+
+.sideBloc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 10px;
+
+  /* background-image: url(../Médias/81g30gJ6F8L.__AC_SX300_SY300_QL70_ML2_.jpg); */
+  background-size: contain;
+  width: 30%;
+  height: 50vh;
+  justify-content: center;
+}
+
+.joueur {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  height: 40%;
+  width: 90%;
+  border: 10px solid wheat;
+}
+
+.gagnant {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  height: 40%;
+  width: 90%;
+  border: 10px solid #f5deb3;
+}
+
+
+.joueurActuel {
+color:#4B3B1E
+
+}
+
+.joueurGagnant {
+  color:#4B3B1E
+}
+.mainContent {
+  display: flex;
+  align-items: center;
+  height: 80vh;
+  width: 100%;
+  justify-content: space-evenly;
+}
