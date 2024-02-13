@@ -11,7 +11,8 @@ export default class ChoixNomJoueur {
 }
 
   InitNomDesJoueurs(){
-  this.joueurActuel =  document.querySelector('.joueurActuel');
-  this.joueurActuel.innerHTML =`${this.Joueur1}`}
+  this.joueurActuel =  document.querySelector('.sideBloc');
+  this.joueurActuel.innerHTML =`<p class="joueur">Joueur actuel :&nbsp;  <span class="joueurActuel">${this.Joueur1} </span></p>
+      <p class="gagnant">Grand gagnant : &nbsp; <span class="joueurGagnant"></span></p>`}
 
 }

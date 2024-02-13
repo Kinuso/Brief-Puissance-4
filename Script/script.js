@@ -6,6 +6,8 @@ Joueurs.InitNomDesJoueurs();
 let joueurActuel = document.querySelector(".joueurActuel");
 let joueurGagnant = document.querySelector(".joueurGagnant");
 let gagnantFinal = "";
+let gifVictoire = document.querySelector(".sideBloc2");
+
 let array = [
   [0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0],
@@ -73,7 +75,6 @@ for (let i = 0; i < emplacements.length; i++) {
       divToChange.style.backgroundColor = "red";
       gagnantFinal = `${Joueurs.Joueur1}`;
       let gagnant = verifWin(joueur);
-      verifWin(joueur);
       joueur = "2";
       joueurActuel.innerHTML = `${Joueurs.Joueur2}`;
       if (gagnant) {
@@ -105,7 +106,12 @@ function verifWin(joueur) {
       if (counter == 4) {
         console.log(joueur + " Gagne");
         joueurGagnant.innerHTML = `${gagnantFinal}`;
-        resetGame();
+        gifVictoire.style.display = "block";
+        setTimeout(() => {
+          resetGame();
+          Joueurs.NomDesJoueurs(); // Request player names again after a win
+        }, 7500);
+        alert(gagnantFinal + " EST LE PLUS FORT DU MONDE AU PUISSANCE 4");
         return true;
       }
     }
@@ -124,8 +130,14 @@ function verifWin(joueur) {
       }
       if (counter == 4) {
         console.log(joueur + " Gagne");
-        joueurGagnant.innerHTML = `${gagnantFinal}`;
-        resetGame();
+        console.log(gagnantFinal + "kk");
+        joueurGagnant.textContent = `${gagnantFinal}`;
+        gifVictoire.style.display = "block";
+        setTimeout(() => {
+          resetGame();
+          Joueurs.NomDesJoueurs(); // Request player names again after a win
+        }, 7500);
+        alert(gagnantFinal + " EST LE PLUS FORT DU MONDE AU PUISSANCE 4");
         return true;
       }
     }
@@ -135,7 +147,6 @@ function verifWin(joueur) {
   for (let y = 0; y < array[0].length - 3; y++) {
     for (let i = 0; i < array.length - 3 && i < array[i].length; i++) {
       let counter = 0;
-
       for (let w = 0; w < 4; w++) {
         if (array[i + w][y + w] == joueur) {
           // console.log(counter + " k " + array[i + w][y + w]);
@@ -147,7 +158,12 @@ function verifWin(joueur) {
       if (counter == 4) {
         console.log(joueur + " Gagne");
         joueurGagnant.innerHTML = `${gagnantFinal}`;
-        resetGame();
+        gifVictoire.style.display = "block";
+        setTimeout(() => {
+          resetGame();
+          Joueurs.NomDesJoueurs(); // Request player names again after a win
+        }, 7500);
+        alert(gagnantFinal + " EST LE PLUS FORT DU MONDE AU PUISSANCE 4");
         return true;
       }
     }
@@ -168,7 +184,13 @@ function verifWin(joueur) {
       if (counter == 4) {
         console.log(joueur + " Gagne");
         joueurGagnant.innerHTML = `${gagnantFinal}`;
-        resetGame();
+        gifVictoire.style.display = "block";
+        alert(gagnantFinal + " EST LE PLUS FORT DU MONDE AU PUISSANCE 4");
+        setTimeout(() => {
+          resetGame();
+          Joueurs.NomDesJoueurs(); // Request player names again after a win
+        }, 7500);
+
         return true;
       }
     }
@@ -177,6 +199,9 @@ function verifWin(joueur) {
 }
 
 function resetGame() {
+  joueurGagnant.innerHTML = ``;
+  joueurActuel.innerHTML = ``;
+  gifVictoire.style.display = "none";
   for (let i = 0; i < array.length; i++) {
     for (let y = 0; y < array[i].length; y++) {
       array[i][y] = 0;
@@ -186,7 +211,4 @@ function resetGame() {
       resetBoard.style.backgroundColor = "wheat";
     }
   }
-  joueurGagnant.innerHTML = "";
-  // Joueurs.NomDesJoueurs()
-  // Joueurs.InitNomDesJoueurs()
 }

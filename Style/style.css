@@ -5,7 +5,8 @@
 
 body {
   height: 95vh;
-  display: flex;align-items: center;
+  display: flex;
+  align-items: center;
   flex-direction: column;
   background-size: 100%;
   font-family: fontBG;
@@ -28,7 +29,6 @@ h1 {
 
 #board {
   padding-left: 5px;
-
   justify-content: center;
   align-items: center;
   height: 50vh;
@@ -48,13 +48,25 @@ h1 {
   position: absolute;
   left: 10px;
 
-  /* background-image: url(../Médias/81g30gJ6F8L.__AC_SX300_SY300_QL70_ML2_.jpg); */
   background-size: contain;
   width: 30%;
   height: 50vh;
   justify-content: center;
 }
 
+.sideBloc2 {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 10px;
+  background-image: url(https://c.tenor.com/gAtN_M3ER-4AAAAC/tenor.gif);
+  background-size: contain;
+  width: 30%;
+  height: 50vh;
+  justify-content: center;
+}
 .joueur {
   display: flex;
   justify-content: center;
@@ -75,14 +87,13 @@ h1 {
   border: 10px solid #f5deb3;
 }
 
-
 .joueurActuel {
-color:#4B3B1E
-
+  color: #4b3b1e;
 }
 
 .joueurGagnant {
-  color:#4B3B1E
+  font-size: 50px;
+  color: #4b3b1e;
 }
 .mainContent {
   display: flex;
