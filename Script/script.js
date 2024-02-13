@@ -1,11 +1,11 @@
 import ChoixNomJoueur from "../classe/choixNomJoueur.js";
 
-let Joueurs = new ChoixNomJoueur()
-Joueurs.NomDesJoueurs()
-Joueurs.InitNomDesJoueurs()
-let joueurActuel =  document.querySelector('.joueurActuel');
+let Joueurs = new ChoixNomJoueur();
+Joueurs.NomDesJoueurs();
+Joueurs.InitNomDesJoueurs();
+let joueurActuel = document.querySelector(".joueurActuel");
 let joueurGagnant = document.querySelector(".joueurGagnant");
-let gagnantFinal = ""
+let gagnantFinal = "";
 let array = [
   [0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0],
@@ -71,21 +71,21 @@ for (let i = 0; i < emplacements.length; i++) {
     if (joueur == "1") {
       array[lowestEmptyRowIndex][columnIndex] = 1;
       divToChange.style.backgroundColor = "red";
-      gagnantFinal = `${Joueurs.Joueur1}`
-      let gagnant = verifWin(joueur); 
+      gagnantFinal = `${Joueurs.Joueur1}`;
+      let gagnant = verifWin(joueur);
       verifWin(joueur);
       joueur = "2";
-      joueurActuel.innerHTML =`${Joueurs.Joueur2}`
+      joueurActuel.innerHTML = `${Joueurs.Joueur2}`;
       if (gagnant) {
         joueur = "1";
       }
     } else {
       array[lowestEmptyRowIndex][columnIndex] = 2;
       divToChange.style.backgroundColor = "black";
-      gagnantFinal = `${Joueurs.Joueur2}`
+      gagnantFinal = `${Joueurs.Joueur2}`;
       verifWin(joueur);
       joueur = "1";
-      joueurActuel.innerHTML =`${Joueurs.Joueur1}`
+      joueurActuel.innerHTML = `${Joueurs.Joueur1}`;
     }
   });
 }
@@ -104,7 +104,7 @@ function verifWin(joueur) {
       }
       if (counter == 4) {
         console.log(joueur + " Gagne");
-        joueurGagnant.innerHTML =`${gagnantFinal}`
+        joueurGagnant.innerHTML = `${gagnantFinal}`;
         resetGame();
         return true;
       }
@@ -124,15 +124,13 @@ function verifWin(joueur) {
       }
       if (counter == 4) {
         console.log(joueur + " Gagne");
-        joueurGagnant.innerHTML =`${gagnantFinal}`
+        joueurGagnant.innerHTML = `${gagnantFinal}`;
         resetGame();
         return true;
       }
     }
   }
-  //
-  //
-  //
+
   // Win condition diagonale haut gauche vers bas droite
   for (let y = 0; y < array[0].length - 3; y++) {
     for (let i = 0; i < array.length - 3 && i < array[i].length; i++) {
@@ -140,7 +138,7 @@ function verifWin(joueur) {
 
       for (let w = 0; w < 4; w++) {
         if (array[i + w][y + w] == joueur) {
-          console.log(counter + " k " + array[i + w][y + w]);
+          // console.log(counter + " k " + array[i + w][y + w]);
           counter++;
         } else {
           break;
@@ -148,27 +146,28 @@ function verifWin(joueur) {
       }
       if (counter == 4) {
         console.log(joueur + " Gagne");
-        joueurGagnant.innerHTML =`${gagnantFinal}`
+        joueurGagnant.innerHTML = `${gagnantFinal}`;
         resetGame();
         return true;
       }
     }
   }
+
   // Win condition diagonale bas gauche vers haut droite
   for (let y = 0; y < array[0].length - 3; y++) {
     for (let i = 0; i < array.length - 3 && i < array[i].length; i++) {
       let counter = 0;
       for (let w = 0; w < 4; w++) {
-        if (array[i + w][y + w] == joueur) {
-          console.log(counter + " k " + array[i + w][y - w]);
+        if (array[i + w][y - w] == joueur) {
           counter++;
+          console.log(counter);
         } else {
           break;
         }
       }
       if (counter == 4) {
         console.log(joueur + " Gagne");
-        joueurGagnant.innerHTML =`${gagnantFinal}`
+        joueurGagnant.innerHTML = `${gagnantFinal}`;
         resetGame();
         return true;
       }
@@ -178,7 +177,6 @@ function verifWin(joueur) {
 }
 
 function resetGame() {
-  
   for (let i = 0; i < array.length; i++) {
     for (let y = 0; y < array[i].length; y++) {
       array[i][y] = 0;
@@ -188,6 +186,7 @@ function resetGame() {
       resetBoard.style.backgroundColor = "wheat";
     }
   }
+  joueurGagnant.innerHTML = "";
   // Joueurs.NomDesJoueurs()
   // Joueurs.InitNomDesJoueurs()
 }
